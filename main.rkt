@@ -15,10 +15,10 @@
      (set! initial-discount (string->number i))]
     [("-n" "--number-of-rounds") n
      "The number of rounds"
-     (set! number-of-rounds n)]
+     (set! number-of-rounds (string->number n))]
     [("-x" "--exchange-rate") x
      "The undiscounted exchange rate"
-     (set! final-exchange-rate x)]
+     (set! final-exchange-rate (string->number x))]
     [("-p" "--precision") p
      ("The precision of the numbers given as the inverse of the smallest unit, that is, say 400 if you want 1/400th precision."
       "The output will be rounded to this precision, and the number of decimals shown will be within the order of magnitude required to render the precision.")
