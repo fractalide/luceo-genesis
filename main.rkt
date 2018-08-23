@@ -20,9 +20,10 @@
      "The undiscounted exchange rate"
      (set! final-exchange-rate x)]
     [("-p" "--precision") p
-     "The precision of the numbers given as the inverse of the smallest unit"
-     (set! precision p)]
-    #:args args (printf "args whaat ~a~n" args))
+     ("The precision of the numbers given as the inverse of the smallest unit, that is, say 400 if you want 1/400th precision."
+      "The output will be rounded to this precision, and the number of decimals shown will be within the order of magnitude required to render the precision.")
+     (set! precision (string->number p))]
+    #:args args (when (> (length args) 0) (raise-user-error (format "ceo: No <args> expected, ~a given." (length args)))))
 
   (printf "~a~n"
     (map (lambda (n) (cons n (real->decimal-string 
@@ -31,5 +32,5 @@
                    (+ (- 100 initial-discount)
                       (* n 
                          (/ initial-discount (sub1 number-of-rounds))))))))
-           (exact-round (log precision 10)))))
+           (exact-round (log (* (sqrt (/ 1000.0 10001)) precision) 10)))))
       (range number-of-rounds))))
