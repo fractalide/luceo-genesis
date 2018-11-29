@@ -1,0 +1,8 @@
+Every X days we are going to parse the results of the ongoing ICO, and
+create a new LUCEO testnet with genesis data based on that
+information, so that anyone who contributed to the ICO can reasonably
+quickly start playing with it, get reassured, and provide feedback.
+
+To do this, we are going to need a tool.
+
+These are the stories of that tool.
